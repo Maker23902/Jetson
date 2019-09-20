@@ -59,8 +59,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "stm32f1xx.h"
-#include "stm32f1xx_hal.h"
+#include "stm32f0xx.h"
+#include "stm32f0xx_hal.h"
 #include "usbd_def.h"
 
 /* USER CODE BEGIN INCLUDE */
@@ -101,7 +101,7 @@
 /*---------- -----------*/
 #define USBD_DEBUG_LEVEL     0
 /*---------- -----------*/
-#define USBD_SELF_POWERED     0
+#define USBD_SELF_POWERED     1
 /*---------- -----------*/
 #define MAX_STATIC_ALLOC_SIZE     512
 
@@ -134,11 +134,6 @@
 
 /** Alias for delay. */
 #define USBD_Delay          HAL_Delay
-
-/* For footprint reasons and since only one allocation is handled in the HID class
-   driver, the malloc/free is changed into a static allocation method */
-void *USBD_static_malloc(uint32_t size);
-void USBD_static_free(void *p);
 
 /* DEBUG macros */
 
@@ -185,7 +180,8 @@ void USBD_static_free(void *p);
   */
 
 /* Exported functions -------------------------------------------------------*/
-
+void *USBD_static_malloc(uint32_t size);
+void USBD_static_free(void *p);
 /**
   * @}
   */

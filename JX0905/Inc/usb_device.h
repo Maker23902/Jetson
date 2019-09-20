@@ -56,8 +56,8 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f1xx.h"
-#include "stm32f1xx_hal.h"
+#include "stm32f0xx.h"
+#include "stm32f0xx_hal.h"
 #include "usbd_def.h"
 
 /* USER CODE BEGIN INCLUDE */
